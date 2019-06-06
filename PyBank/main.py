@@ -11,14 +11,8 @@ grt_dec = 0
 csvpath = os.path.join('budget_data.csv')
 
 with open(csvpath, newline='') as csvfile:
-
     csvreader = csv.reader(csvfile, delimiter=',')
-
-    print(csvreader)
-
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
-
     for row in csvreader:
         date.append(row[0])
         money.append(row[1])
@@ -33,7 +27,7 @@ with open(csvpath, newline='') as csvfile:
         
 avg_change = total_money/total_months
 
-output_file = "test.txt"
+output_file = "Financial Analysis.txt"
 
 output = (
     f"\nFinancial Analysis\n"
@@ -48,4 +42,3 @@ with open(output_file, "w") as txt_file:
     txt_file.write(output)
 
 print(output)
-
